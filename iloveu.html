@@ -9,16 +9,19 @@
 </head>
 
 <body>
-<document.one('WeixinJSBridgeReady', function () {
-    var audio = document.getElementById("audio");
-    audio.play(); //执行一次
-    audio.setAttribute('src', './music.mp3'); // 替换src
-    audio.load();
-})>
-<window.addEventListener('devicemotion', function () {
-    document.getElementById("audio").play(); // 成功播放
-}, false);>
-
+    <audio style="display:none; height: 0" id="music" preload="auto" src="./music.mp3" loop="loop"></audio>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {    
+        function audioAutoPlay() {    
+            var audio = document.getElementById('music');               
+                audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () { 
+                audio.play();       
+            }, false); 
+        }    
+        audioAutoPlay();
+    });
+    </script>
     <div id="back">
         <div class="mask"></div>
         <!-- 设置展示的图片，github pages不能有后台程序只能一条一条手动添加了 囧 -->
