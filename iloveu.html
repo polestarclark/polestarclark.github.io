@@ -9,19 +9,17 @@
 </head>
 
 <body>
-    <audio style="display:none; height: 0" id="bg-music" preload="auto" 
-    src="./music.mp3" loop="loop"></audio>
-   
-    <document.addEventListener('DOMContentLoaded', function () {
-        function audioAutoPlay() { 
-            var audio = document.getElementById('bg-music');
-                audio.play(); 
-            document.addEventListener("WeixinJSBridgeReady", function () { 
-                audio.play(); 
-            }, false); 
-        }   
-        audioAutoPlay();
-    })>
+<$(document).one('WeixinJSBridgeReady', function () {
+    var audio = document.getElementById("audio");
+    audio.play(); //执行一次
+    audio.setAttribute('src', 'img/shake.mp3'); // 替换src
+    audio.load();
+})>
+// 监听摇晃事件简化版
+<window.addEventListener('devicemotion', function () {
+    document.getElementById("audio").play(); // 成功播放
+}, false);>
+
     <div id="back">
         <div class="mask"></div>
         <!-- 设置展示的图片，github pages不能有后台程序只能一条一条手动添加了 囧 -->
