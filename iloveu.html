@@ -9,12 +9,12 @@
 </head>
 
 <body>
-$(document).one('WeixinJSBridgeReady', function () {
+<(document).one('WeixinJSBridgeReady', function () {
     var audio = document.getElementById("audio");
     audio.play(); //执行一次
     audio.setAttribute('src', './music.mp3'); // 替换src
     audio.load();
-})
+})>
 // 监听摇晃事件简化版
 <window.addEventListener('devicemotion', function () {
     document.getElementById("audio").play(); // 成功播放
