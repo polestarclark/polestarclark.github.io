@@ -9,12 +9,12 @@
 </head>
 
 <body>
-    <audio style="display:none; height: 0" id="music" preload="auto" 
+    <audio style="display:none; height: 0" id="bg-music" preload="auto" 
     src="./music.mp3" loop="loop"></audio>
    
     <document.addEventListener('DOMContentLoaded', function () {
         function audioAutoPlay() { 
-            var audio = document.getElementById('music');
+            var audio = document.getElementById('bg-music');
                 audio.play(); 
             document.addEventListener("WeixinJSBridgeReady", function () { 
                 audio.play(); 
